@@ -1,26 +1,43 @@
 package pio_zajecia;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Kod {
 
 	public static void main(String[] args) {
+		Player player = null;
+		Random rand = new Random();
+		System.out.println("Wybierz 1 aby samemu wporwadziÊ liczby lub 2 aby komputer sam losowa≥: ");
+		Scanner scanner = new Scanner(System.in);
+		int c = scanner.nextInt();
+		if (c == 1) {
+			player = new PlayerHuman("Bartek");
+		} else if (c == 2) {
+			player = new PlayerComp();
+		}
 
-		int liczba = 0, guess = 7;
+		try {
+			player.setName(null);
+		} catch (IllegalArgumentException iae) {
+			System.err.println("B≥πd " + iae.getMessage());
+		}
 
-		Random rand1 = new Random();
-
-		Player player = new Player();
-		player.setName("Ziutek");
+		int a, b;
 
 		do {
-			System.out.print("Wprowadz liczbe od 1 do 6: ");
-			guess = player.guess();
-			liczba = rand1.nextInt(6) + 1;
-			System.out.println("Wprowadzona liczba " + liczba);
-		} while (liczba != guess);
+			a = rand.nextInt(6) + 1;
+			System.out.println("Komputer wylosowa≥: " + a);
 
-		System.out.println("Brawo " + player.getName() + " !!!");
+			b = player.guess();
+			System.out.println("Strza≥ gracza " + player.getName() + ": " + b);
+
+			if (a == b)
+				System.out.println("Wygra≥eú");
+			else
+				System.out.println("èle");
+
+		} while (a != b);
 	}
 }
 
@@ -28,3 +45,6 @@ public class Kod {
 // REGRESJA
 // ZASADA OTWARTE-ZAMKNIETE
 // ABSTRAKCJA, HERMETYZACJA, POLIMORFIZM, DZIEDZICZENIE
+// TRY CATCH
+// KONSTRUKTOR PARAMETROWY/ BEZPARAMETROWY
+// FINAL

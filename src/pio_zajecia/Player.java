@@ -1,22 +1,28 @@
 package pio_zajecia;
 
-import java.util.Random;
+public abstract class Player {
 
-public class Player {
+	public Player(String name) {
+		this.name = name;
+	}
 
-	Random rand = new Random();
-	private String name;
 
-	public int guess() {
+	private String name = "Anonim";
 
-		return rand.nextInt(6) + 1;
+	public Player() {
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		if (name != null && !name.isEmpty())
+			this.name = name;
+		else
+			throw new IllegalArgumentException("Invalid name!");
 	}
+	public abstract int guess();
+
+
 }
