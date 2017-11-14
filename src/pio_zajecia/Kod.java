@@ -1,43 +1,15 @@
 package pio_zajecia;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Kod {
 
 	public static void main(String[] args) {
-		Player player = null;
-		Random rand = new Random();
-		System.out.println("Wybierz 1 aby samemu wporwadziÊ liczby lub 2 aby komputer sam losowa≥: ");
-		Scanner scanner = new Scanner(System.in);
-		int c = scanner.nextInt();
-		if (c == 1) {
-			player = new PlayerHuman("Bartek");
-		} else if (c == 2) {
-			player = new PlayerComp();
-		}
-
-		try {
-			player.setName(null);
-		} catch (IllegalArgumentException iae) {
-			System.err.println("B≥πd " + iae.getMessage());
-		}
-
-		int a, b;
-
-		do {
-			a = rand.nextInt(6) + 1;
-			System.out.println("Komputer wylosowa≥: " + a);
-
-			b = player.guess();
-			System.out.println("Strza≥ gracza " + player.getName() + ": " + b);
-
-			if (a == b)
-				System.out.println("Wygra≥eú");
-			else
-				System.out.println("èle");
-
-		} while (a != b);
+		
+		 Player player=new PlayerComp("Janusz"); Game game=new Game();
+		 game.addPlayer(player); game.play();
+		 
 	}
 }
 
@@ -48,3 +20,33 @@ public class Kod {
 // TRY CATCH
 // KONSTRUKTOR PARAMETROWY/ BEZPARAMETROWY
 // FINAL
+// ITERATOR
+/*ARRAY LIST
+ArrayList<String> list = new ArrayList();
+list.add("pierwszy");
+list.add("drugi");
+list.add("pierwszy1");
+list.add("drugi1");
+for (int i = 0; i < list.size(); i++) {
+	System.out.println(list.get(i));
+}
+System.out.println("------------------------------");
+for (String element : list) { // petla for each, nie wolno w niej modyfikowac listy
+	System.out.println(element);
+}
+System.out.println("------------------------------");
+Iterator<String> ite = list.iterator();
+while (ite.hasNext() == true) {
+	String element = ite.next();
+	System.out.println(element);
+}
+System.out.println("------------------------------");
+Iterator<String> it = list.iterator();
+while (it.hasNext() == true) {
+	System.out.println(it.next());
+}
+System.out.println("------------------------------");
+System.out.println(list.toString());
+System.out.println("------------------------------");
+System.out.println(list);
+*/
