@@ -1,15 +1,19 @@
 package pio_zajecia;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+
 
 public class Kod {
 
 	public static void main(String[] args) {
 		
-		 Player player=new PlayerComp("Janusz"); Game game=new Game();
-		 game.addPlayer(player); game.play();
-		 
+		 Player player=new PlayerComp("Janusz"); 
+		 Game game=new Game();
+		 game.addPlayer(player); 
+		 game.addPlayer(new PlayerComp("Janusz"));
+		 for(int i=0;i<10000;i++) {
+		 game.play();
+		 }
+		 game.printStats();
 	}
 }
 
