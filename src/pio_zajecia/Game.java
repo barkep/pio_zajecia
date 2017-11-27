@@ -12,10 +12,6 @@ public class Game {
 	private Map<String, Integer> stats = new HashMap();
 
 	public void printStats() {
-//		System.out.println(stats);
-//		for(Map.Entry<String, Integer> item : stats.entrySet()) {
-//			System.out.println(item.getKey() +"="+ item.getValue());
-//		}
 		stats.forEach((k, v)-> System.out.println(k+"="+v));
 		
 	}
